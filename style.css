@@ -1,0 +1,121 @@
+/* Réinitialisation des styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: url('image/free.webp') no-repeat center center/cover;
+    color: #E0E0E0;
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Animation d'apparition */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+header {
+    height: 100vh;
+    background-size: cover;
+}
+
+/* Barre de navigation */
+.only {
+    position: absolute;
+    padding: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.only a {
+    color: white;
+}
+
+.only .logo {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+/* Menu de navigation */
+.only .nav-links ul {
+    display: flex;
+}
+
+.only .nav-links li {
+    margin: 0 25px;
+}
+
+.only .nav-links ul li.active a {
+    color: white;
+    font-weight: 600;
+}
+
+/* Icône menu hamburger */
+.only .menu-hamburger {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    width: 35px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 900px) {
+    .only .logo {
+        position: absolute;
+        top: 50px;
+        left: 50px;
+    }
+
+    .only {
+        padding: 0;
+    }
+
+    .only .menu-hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        top: 0;
+        left: 0;
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.299);
+        backdrop-filter: blur(8px);
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: -100%;
+        transition: all 0.5s ease;
+    }
+
+    .nav-links.mobile-menu {
+        margin-left: 0;
+    }
+
+    .nav-links ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .only .nav-links li {
+        margin: 25px 0;
+        font-size: 1.2em;
+    }
+}
