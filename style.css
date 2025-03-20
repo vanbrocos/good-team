@@ -10,6 +10,8 @@
 body {
     font-family: Arial, sans-serif;
     background: url('image/free.webp') no-repeat center center/cover;
+    background-size: cover;
+    background-attachment: fixed;
     color: #E0E0E0;
     text-align: center;
     animation: fadeIn 1.5s ease-in-out;
@@ -26,19 +28,78 @@ body {
     }
 }
 
-header {
+/* Effet de slide-in pour le hero */
+@keyframes slideIn {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Section Hero */
+.hero {
+    position: relative;
+    width: 100%;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: url('image/free.webp') no-repeat center center/cover;
     background-size: cover;
+}
+
+.hero-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.hero h1 {
+    font-size: 3em;
+    font-weight: bold;
+    animation: slideIn 1s ease-in-out;
+}
+
+.hero p {
+    font-size: 1.5em;
+    margin-top: 10px;
+    animation: slideIn 1.2s ease-in-out;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background: #ff9800;
+    color: white;
+    border-radius: 8px;
+    transition: background 0.3s;
+    animation: slideIn 1.5s ease-in-out;
+}
+
+.btn:hover {
+    background: #e68900;
 }
 
 /* Barre de navigation */
 .only {
-    position: absolute;
-    padding: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
 }
 
 .only a {
@@ -64,48 +125,67 @@ header {
     font-weight: 600;
 }
 
+/* Animation Hover sur les liens */
+.nav-links ul li a {
+    position: relative;
+    transition: color 0.3s;
+}
+
+.nav-links ul li a::after {
+    content: '';
+    width: 0;
+    height: 2px;
+    background: #ff9800;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s;
+}
+
+.nav-links ul li a:hover::after {
+    width: 100%;
+}
+
 /* Icône menu hamburger */
 .only .menu-hamburger {
     display: none;
-    position: absolute;
-    top: 50px;
-    right: 50px;
+    cursor: pointer;
     width: 35px;
+    filter: invert(1);
 }
 
 /* Responsive Design */
 @media screen and (max-width: 900px) {
     .only .logo {
         position: absolute;
-        top: 50px;
-        left: 50px;
-    }
-
-    .only {
-        padding: 0;
+        top: 20px;
+        left: 20px;
     }
 
     .only .menu-hamburger {
         display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
     }
 
     .nav-links {
         top: 0;
         left: 0;
-        position: absolute;
-        background-color: rgba(255, 255, 255, 0.299);
-        backdrop-filter: blur(8px);
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.9);
         width: 100%;
         height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-left: -100%;
-        transition: all 0.5s ease;
+        flex-direction: column;
+        transform: translateX(-100%);
+        transition: transform 0.5s ease;
     }
 
     .nav-links.mobile-menu {
-        margin-left: 0;
+        transform: translateX(0);
     }
 
     .nav-links ul {
@@ -116,6 +196,14 @@ header {
 
     .only .nav-links li {
         margin: 25px 0;
-        font-size: 1.2em;
+        font-size: 1.5em;
     }
+}
+
+/* Footer */
+footer {
+    background: #111;
+    color: #E0E0E0;
+    text-align: center;
+    padding: 20px;
 }

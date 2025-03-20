@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil - Site Pro</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
@@ -13,17 +14,27 @@
         <a href="#" class="logo">project</a>
         <div class="nav-links">
             <ul>
-                <li class="active"><a href="#">home</a></li>
-                <li><a href="cv.html">cv</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="portefolio.html">portfolio</a></li>
-                <li><a href="#">support</a></li>
+                <li class="active"><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="cv.html"><i class="fas fa-user"></i> CV</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="portefolio.html"><i class="fas fa-briefcase"></i> Portfolio</a></li>
+                <li><a href="#"><i class="fas fa-life-ring"></i> Support</a></li>
             </ul>
         </div>
         <img src="image/vecteezy_main-menu-icon_55157252.png" alt="menu hamburger" class="menu-hamburger">
     </nav>
 
-    <header></header>
+    <header class="hero">
+        <div class="hero-overlay">
+            <h1>Bienvenue sur notre site</h1>
+            <p> nous somme un groupe de Développeur passionné en cybersécurité et création web </p>
+            <a href="portefolio.html" class="btn">Voir mon travail</a>
+        </div>
+    </header>
+
+    <footer>
+        <p>Développeur Web & Cybersécurité</p>
+    </footer>
 
     <script>
         const menuHamburger = document.querySelector(".menu-hamburger");
